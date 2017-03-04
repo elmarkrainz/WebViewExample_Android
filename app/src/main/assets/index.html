@@ -1,0 +1,89 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--	<script>
+
+	//http://stackoverflow.com/questions/21741841/detecting-ios-android-operating-system
+	function getMobileOperatingSystem() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+		  // Windows Phone must come first because its UA also contains "Android"
+		if (/windows phone/i.test(userAgent)) {
+			return "Windows Phone";
+		}
+
+		if (/android/i.test(userAgent)) {
+			return "Android";
+		}
+
+		// iOS detection from: http://stackoverflow.com/a/9039885/177710
+		if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+			return "iOS";
+		}
+
+		return "unknown";
+	}
+</script>
+-->
+
+
+<script>
+    function setTextinJS(text){
+        var x = document.getElementById("content").innerHTML;
+        document.getElementById("content").innerHTML=x + "<br>"+ text
+   }
+
+	function doJs(){
+	alert("js alert");
+	}
+
+    function makeToast(msg){
+		Androidfunction.showToast(msg);
+	}
+
+
+	function getDevId(){
+		setTextinJS(Androidfunction.getDevID())
+	}
+
+
+
+
+  </script>
+
+</head>
+<body>
+<!--<p>OS:<script> document.write(getMobileOperatingSystem()); </script></p>-->
+
+
+
+<h1>Demo: WebView JS to Native </h1>
+
+<p>This is a simple Html file.</p>
+
+
+<br>
+Communication between native platform and JS/Webview.
+
+
+<br><br>
+<input type="button" value="invoke Java" onclick="makeToast('hello World')"/>
+
+
+<br><br>
+<input type="button" value="get Android Data (DevID)" onclick="getDevId()"/>
+
+
+
+
+<!-- for testing Js
+<br>
+<input type="button" value="test" onclick="doJS()"/>
+-->
+
+
+<br>
+<div id="content"></div>
+
+</body>
+</html>
